@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <br>
+            <h1 class="display-4">{{ post.title}}</h1>
+            <small>{{ post.pub_date}}</small>
+            <p>{{ post.author.username}}</p>
+            <br>
+            <p class="lead">{{ post.content}}</p>
+            <br>
+            <a class="btn btn-secondary" href="{% url 'update_post' post.id %}" role="button">Update &raquo;</a></<a>
+            <a class="btn btn-danger" href="{% url 'delete_post' post.id %}" role="button">Delete &raquo;</a></<a>
+        </div>
+    </div>
+    <hr>
+</div>
+
+
+{% endblock content %}

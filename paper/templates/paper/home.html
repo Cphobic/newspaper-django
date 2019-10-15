@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="jumbotron">
+                <div class="container">
+                    <h1 class="display-3">{{ object_list.0.title }}</h1>
+                    <p>
+                        {{object_list.0.content}}
+                    </p>
+                    <p><a class="btn btn-primary btn-lg" href="{% url 'detail' object_list.0.id %}" role="button">Learn
+                            more
+                            &raquo;</a></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        {% for post in object_list %}
+        <div class="col-md-4 mb-5"">
+            <div class=" card" style="width: 20rem; height: 20rem;">
+            <div class="card-body ">
+                <h4 class="card-title">{{ post.title}}</h4>
+                <h6 class="card-subtitle text-muted">Card subtitle</h6>
+                <p class="card-text">{{ post.content|slice:'100'}}</p>
+            </div>
+            <a class="btn btn-outline-primary btn-lg" href="#">Read More</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+
+{% endblock content %}
+
+
+
+
+
+<div class="col-md-4">
+    <h2>{{ post.title}}</h2>
+    <p>{{ post.content|slice:'200'}}</p>
+    <p><a class="btn btn-secondary" href="{% url 'detail' post.id %}" role="button">View details
+            &raquo;</a></p>
+</div>

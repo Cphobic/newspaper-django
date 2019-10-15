@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="content-section">
+    <form action="" method="POST" novalidate>
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-b">Confirmation Requried</legend>
+        </fieldset>
+        <div class="form-group">
+            <p class="lead">Do you really want to delete this post?</p>
+            <br>
+            <button class="btn btn-outline-danger" type="submit">Confirm</button>
+            <a class="btn btn-outline-info" href="{% url 'detail' post.id%}">Go back</a>
+        </div>
+    </form>
+</div>
+{% endblock content %}
