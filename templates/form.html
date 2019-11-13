@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<main class="mt-5 pt-5">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+
+            {% block form %}
+            {% endblock %}
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}

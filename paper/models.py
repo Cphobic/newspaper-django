@@ -10,6 +10,9 @@ class Post(models.Model):
     author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     content = models.TextField()
     pub_date = models.DateTimeField(default=timezone.now)
+    cover_photo = models.ImageField(default='post_default.jpg',
+                                    upload_to='post_images',
+                                    verbose_name='Post Cover')
 
     def __str__(self):
         return f'{self.title[:30]}...'

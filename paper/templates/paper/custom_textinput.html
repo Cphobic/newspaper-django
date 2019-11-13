@@ -1,0 +1,4 @@
+{% load crispy_forms_field %}
+
+<label for="{{ field.id_for_label }}">{{ field.label }}</label>
+{% crispy_field field 'class' 'form-control' %}

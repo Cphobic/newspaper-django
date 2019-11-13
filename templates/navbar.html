@@ -1,0 +1,54 @@
+<!--Navbar -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark unique-color-dark scrolling-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">Cold News</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+            aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto nav-flex-icons">
+                {% if user.is_authenticated %}
+                <a href="{% url 'create_post' %}"><button class="btn btn align-middle btn-blue-grey" type="button"><i
+                            class="fas fa-pen-nib"></i>Create Post</button></a>
+                <li class="nav-item avatar dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <img src="{{ user.image.url }}" class="rounded-circle z-depth-0" alt="avatar image"
+                            height="35px" width="35px">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+                        aria-labelledby="navbarDropdownMenuLink-55">
+                        <a class="dropdown-item " href="{% url 'update_profile' user.id %}"><i
+                                class="fas fa-user-edit mr-2"></i>Edit Profile</a>
+                        <a class="dropdown-item" href="{% url 'all_post' user.id %}"><i class="fas fa-blog mr-2"></i>See
+                            All Posts</a>
+                        <a class="dropdown-item" href="{% url 'logout' %}"><i class="fas fa-sign-in-alt mr-2"></i>Log
+                            Out</a>
+                    </div>
+                </li>
+                {% else %}
+                <a href="{% url 'login' %}"><button class="btn btn-sm align-middle btn-outline-blue-grey lighten-5"
+                        type="button"><i class="fas fa-sign-in-alt mr-1"></i>Login</button></a>
+                <a href="{% url 'signup' %}"><button class="btn btn-sm align-middle btn-outline-blue-grey lighten-5"
+                        type="button"><i class="fas fa-user-plus mr-1"></i>Sign Up</button></a>
+                {% endif %}
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<!--/.Navbar -->
+
+<!-- <li class="nav-item pt-2">
+    <a class="nav-link waves-effect waves-light">1
+        <i class="fas fa-envelope"></i>
+    </a>
+</li> -->

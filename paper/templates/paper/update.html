@@ -1,17 +1,25 @@
-{% extends 'base.html' %}
+{% extends 'form.html' %}
 {% load crispy_forms_tags %}
 
-{% block content %}
-<div class="content-section">
-    <form action="" method="POST" novalidate>
-        {% csrf_token %}
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-b">Update Post</legend>
-            {{ form|crispy }}
-        </fieldset>
-        <div class="form-group">
-            <button class="btn btn-outline-info" type="submit">Update</button>
+{% block form %}
+
+<div class="col-8">
+
+    <div class="card">
+
+        <h5 class="card-header info-color white-text text-center py-4">
+            <strong>Update Post</strong>
+        </h5>
+
+        <div class="card-body px-lg-5 pt-0">
+
+            <form class="md-form" enctype="multipart/form-data" method="post" novalidate>
+                {% csrf_token %}
+                {% crispy form %}
+            </form>
         </div>
-    </form>
+    </div>
+
 </div>
-{% endblock content %}
+
+{% endblock form %}

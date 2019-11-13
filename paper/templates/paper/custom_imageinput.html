@@ -1,0 +1,9 @@
+{% load crispy_forms_field %}
+
+
+<div class="input-group mb-5">
+    <div class="custom-file">
+        {% crispy_field field 'class' 'custom-file-input'%}
+        <label class="custom-file-label" for="{{ field.id_for_label }}">Choose file</label>
+    </div>
+</div>

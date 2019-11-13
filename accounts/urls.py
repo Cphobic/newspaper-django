@@ -16,8 +16,12 @@ urlpatterns = [
     path('password-change-form/',
          auth_views.PasswordChangeView.as_view(
              template_name='accounts/password_change_form.html',
-             success_url=reverse_lazy('login')), name='password-change'),
+             success_url=reverse_lazy('login')), name='password_change'),
 
     path('update-profile/<int:pk>/', account_views.UpdateProfileView.as_view(),
          name='update_profile'),
+
+    path('all-post/<int:pk>/', account_views.AllPostList.as_view(), name='all_post')
+
+
 ]

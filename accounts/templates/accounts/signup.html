@@ -1,19 +1,27 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-<div class="content-section">
-    <form action="" method="POST" novalidate enctype="multipart/form-data">
-        {% csrf_token %}
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-b">Create Account</legend>
-            {{ form|crispy }}
-        </fieldset>
-        <div class="form-group">
-            <button class="btn btn-outline-info" type="submit">Sign Up</button>
+
+<main class="mt-5 pt-5">
+    <div class="container mt-2">
+        <div class="row justify-content-center">
+            <div class="col-10 ">
+                <div class="card">
+                    <h5 class="card-header info-color white-text text-center py-4">
+                        <strong>Register</strong>
+                    </h5>
+
+                    <div class="card-body px-lg-5 pt-0">
+
+                        <form class="mt-2 pt-2" method="post" enctype="multipart/form-data" novalidate>
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <button type="submit" class="btn btn-primary btn btn-block mt-4">Signup</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    </form>
-    <div class="border-top pt-3">
-        <small class="tex-muted">Already Have an Account? <a href="{% url 'login' %}" class="ml-2">Sign in</a></small>
     </div>
-</div>
+</main>
 {% endblock content %}

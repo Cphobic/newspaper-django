@@ -2,16 +2,28 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="content-section">
-    <form action="" method="POST" novalidate>
-        {% csrf_token %}
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-b">User Information</legend>
-            {{ form|crispy }}
-        </fieldset>
-        <div class="form-group">
-            <button class="btn btn-outline-info" type="submit">Update</button>
+<main class="mt-5 pt-5" style="height: 80vh;">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-6 ">
+                <div class="card">
+                    <h5 class="card-header info-color white-text text-center py-4">
+                        <strong>Profile</strong>
+                    </h5>
+
+                    <div class="card-body px-lg-5 pt-0">
+
+                        <form class="mt-2 pt-2" enctype="multipart/form-data" method="post" novalidate>
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <a href="{% url 'password_change' %}">Change Password</a>
+                            <button type="submit" class="btn btn-primary btn btn-block mt-4">Update</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
         </div>
-    </form>
-</div>
+    </div>
+</main>
 {% endblock content %}
